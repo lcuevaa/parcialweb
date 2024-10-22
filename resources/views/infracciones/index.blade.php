@@ -71,7 +71,7 @@
                                     @else
                                     @foreach($registros as $reg)
                                     <tr>
-                                        <td><button class="btn btn-warning btn-sm" onclick="editar({{$reg->id}})"><i
+                                        <td><button class="btn btn-warning btn-sm" onclick="editar({{($reg->id}})"><i
                                                     class="fas fa-edit"></i> </button>
                                             <button type="button" data-toggle="modal"
                                                 data-target="#modal-eliminar-{{$reg->id}}"
