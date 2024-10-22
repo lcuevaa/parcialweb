@@ -66,12 +66,12 @@
                                 <tbody>
                                     @if(count($registros)==0)
                                     <tr>
-                                        <td colspan="3">No hay resultados</td>
+                                        <td colspan="6">No hay resultados</td>
                                     </tr>
                                     @else
                                     @foreach($registros as $reg)
                                     <tr>
-                                        <td><button class="btn btn-warning btn-sm" onclick="editar('{{$reg->id}}')"><i
+                                        <td><button class="btn btn-warning btn-sm" onclick="editar({{$reg->id}})"><i
                                                     class="fas fa-edit"></i> </button>
                                             <button type="button" data-toggle="modal"
                                                 data-target="#modal-eliminar-{{$reg->id}}"
@@ -110,32 +110,32 @@
 @endsection
 @push('scripts')
 <script>
-$('#liAlmacen').addClass("menu-open");
-$('#liCategoria').addClass("active");
-$('#aAlmacen').addClass("active");
+    $('#liAlmacen').addClass("menu-open");
+    $('#liCategoria').addClass("active");
+    $('#aAlmacen').addClass("active");
 
-function nuevo() {
-    $.ajax({
-        method: 'get',
-        url: `{{url('infracciones/create')}}`, //Alt + 96 `
-        success: function(res) {
-            $('#modal-action').find('.modal-dialog').html(res);
-            $("#textoBoton").text("Guardar");
-            $('#modal-action').modal("show");
-        }
-    });
-}
+    function nuevo() {
+        $.ajax({
+            method: 'get',
+            url: `{{url('infracciones/create')}}`, //Alt + 96 `
+            success: function(res) {
+                $('#modal-action').find('.modal-dialog').html(res);
+                $("#textoBoton").text("Guardar");
+                $('#modal-action').modal("show");
+            }
+        });
+    }
 
-function editar(id) {
-    $.ajax({
-        method: 'get',
-        url: `{{url('infracciones')}}/${id}/edit`,
-        success: function(res) {
-            $('#modal-action').find('.modal-dialog').html(res);
-            $("#textoBoton").text("Editar");
-            $('#modal-action').modal("show");
-        }
-    });
-}
+    function editar(id) {
+        $.ajax({
+            method: 'get',
+            url: `{{url('infracciones')}}/${id}/edit`,
+            success: function(res) {
+                $('#modal-action').find('.modal-dialog').html(res);
+                $("#textoBoton").text("Editar");
+                $('#modal-action').modal("show");
+            }
+        });
+    }
 </script>
 @endpush

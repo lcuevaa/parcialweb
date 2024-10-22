@@ -46,7 +46,7 @@ class InfraccionesController extends Controller
             $registro->infraccion = $request->input('infraccion');
             $registro->descripcion = $request->input('descripcion');
             $registro->save();
-            return redirect()->route('infracciones.index')->with('mensaje', 'Registro ' . $registro->nombre . ' creado safistactoriamente.');
+            return redirect()->route('infracciones.index')->with('mensaje', 'Registro ' . $registro->dni . ' creado safistactoriamente.');
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->route('infracciones.index')->with('error', 'No se puede crear el registro');
         }
